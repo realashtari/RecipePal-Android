@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.mobileapp.recipepal.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="com.mobileapp.recipepal.RecipeFragment"
+        android:label="fragment_recipe"
+        tools:layout="@layout/fragment_recipe" >
+        <action
+            android:id="@+id/action_recipeFragment_to_detailedRecipeFragment"
+            app:destination="@id/detailedRecipeFragment" />
+        <action
+            android:id="@+id/action_recipeFragment_to_updateRecipeFragment"
+            app:destination="@id/updateRecipeFragment" />
+        <action
+            android:id="@+id/action_recipeFragment_to_createRecipeFragment"
+            app:destination="@id/createRecipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createRecipeFragment"
+        android:name="com.mobileapp.recipepal.CreateRecipeFragment"
+        android:label="fragment_create_recipe"
+        tools:layout="@layout/fragment_create_recipe" >
+        <action
+            android:id="@+id/action_createRecipeFragment_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailedRecipeFragment"
+        android:name="com.mobileapp.recipepal.DetailedRecipeFragment"
+        android:label="fragment_detailed_recipe"
+        tools:layout="@layout/fragment_detailed_recipe" >
+        <action
+            android:id="@+id/action_detailedRecipeFragment_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateRecipeFragment"
+        android:name="com.mobileapp.recipepal.UpdateRecipeFragment"
+        android:label="fragment_update_recipe"
+        tools:layout="@layout/fragment_update_recipe" >
+        <action
+            android:id="@+id/action_updateRecipeFragment_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+    </fragment>
+</navigation>

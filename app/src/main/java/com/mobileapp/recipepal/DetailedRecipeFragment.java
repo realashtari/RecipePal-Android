@@ -13,6 +13,8 @@ import com.mobileapp.recipepal.databinding.FragmentDetailedRecipeBinding;
 public class DetailedRecipeFragment extends Fragment {
     private FragmentDetailedRecipeBinding binding;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

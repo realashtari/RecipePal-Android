@@ -60,4 +60,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    //Implementing card view dependencies
+    implementation("androidx.cardview:cardview:1.0.0")
 }

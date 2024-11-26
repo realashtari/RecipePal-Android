@@ -3,6 +3,8 @@ package com.mobileapp.recipepal;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +22,35 @@ public class RecipeFragment extends Fragment {
 
         View view = binding.getRoot();
         // Inflate the layout for this fragment
+
+        binding.addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action
+                        = RecipeFragmentDirections.actionRecipeFragmentToCreateRecipeFragment();
+                Navigation.findNavController(binding.getRoot()).navigate(action);
+            }
+        });
+
+        binding.editRecipeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action
+                        = RecipeFragmentDirections.actionRecipeFragmentToUpdateRecipeFragment();
+                Navigation.findNavController(binding.getRoot()).navigate(action);
+            }
+        });
+
+        binding.viewRecipeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action
+                        = RecipeFragmentDirections.actionRecipeFragmentToDetailedRecipeFragment();
+                Navigation.findNavController(binding.getRoot()).navigate(action);
+            }
+        });
+
+
         return view;
     }
 }

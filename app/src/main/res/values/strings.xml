@@ -33,4 +33,9 @@
 
     <!--Menu Bottom Nav Bar-->-->
     <string name="menu_drawer_item_back">Back</string>
+
+    <string name="confrim_deletion">Confrim Deletion</string>
+    <string name="ask_deletion_confrimation">Are you sure you want to delete?</string>
+    <string name="deleteButton">Delete</string>
+
 </resources>

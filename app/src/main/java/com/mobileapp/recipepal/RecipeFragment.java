@@ -7,12 +7,15 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.mobileapp.recipepal.databinding.FragmentRecipeBinding;
+
+import java.util.List;
 
 public class RecipeFragment extends Fragment {
     private FragmentRecipeBinding binding;
@@ -51,9 +54,6 @@ public class RecipeFragment extends Fragment {
         });
 
 
-
-
-
         binding.addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,14 +72,57 @@ public class RecipeFragment extends Fragment {
             }
         });
 
+//        binding.viewRecipeButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//
+//
+//                NavDirections action
+//                        = RecipeFragmentDirections.actionRecipeFragmentToDetailedRecipeFragment();
+//                Navigation.findNavController(binding.getRoot()).navigate(action);
+//            }
+//        });
+
         binding.viewRecipeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action
-                        = RecipeFragmentDirections.actionRecipeFragmentToDetailedRecipeFragment();
-                Navigation.findNavController(binding.getRoot()).navigate(action);
+
+                // Fetch recipes in a background thread to avoid blocking the UI
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        AppDatabase database = AppDatabase.getDatabase(requireContext());
+
+                        // Fetch all recipes
+                        List<Recipe> recipes = database.recipeDao().getAll();
+
+                        if (!recipes.isEmpty()) {
+                            // Dynamically get the first recipe ID (or select another logic for choosing a recipe)
+                            int insertedId = recipes.get(1).uid; // Replace with logic for selecting a recipe ID
+
+                            // Log the ID for debugging purposes
+                            Log.d("RecipeFragment", "Using insertedId: " + insertedId);
+
+                            // Navigate to DetailedRecipeFragment with the dynamically fetched recipe ID
+                            requireActivity().runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    // Pass the recipe ID to DetailedRecipeFragment
+                                    NavDirections action = RecipeFragmentDirections
+                                            .actionRecipeFragmentToDetailedRecipeFragment(insertedId);
+                                    Navigation.findNavController(binding.getRoot()).navigate(action);
+                                }
+                            });
+                        } else {
+                            Log.e("RecipeFragment", "No recipes found in the database!");
+                        }
+                    }
+                }).start();
             }
         });
+
+
         binding.deleteRecipeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -26,6 +26,8 @@ public class WelcomeFragment extends Fragment {
         binding.welcomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 NavDirections action
                         = WelcomeFragmentDirections.actionWelcomeFragmentToRecipeFragment();
                 Navigation.findNavController(binding.getRoot()).navigate(action);

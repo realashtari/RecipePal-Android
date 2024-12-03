@@ -14,11 +14,13 @@
             android:id="@+id/action_welcomeFragment_to_recipeFragment"
             app:destination="@id/recipeFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/recipeFragment"
         android:name="com.mobileapp.recipepal.RecipeFragment"
         android:label="fragment_recipe"
         tools:layout="@layout/fragment_recipe" >
+
         <action
             android:id="@+id/action_recipeFragment_to_detailedRecipeFragment"
             app:destination="@id/detailedRecipeFragment" />
@@ -29,6 +31,7 @@
             android:id="@+id/action_recipeFragment_to_createRecipeFragment"
             app:destination="@id/createRecipeFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/createRecipeFragment"
         android:name="com.mobileapp.recipepal.CreateRecipeFragment"
@@ -38,15 +41,24 @@
             android:id="@+id/action_createRecipeFragment_to_recipeFragment"
             app:destination="@id/recipeFragment" />
     </fragment>
+
+
     <fragment
         android:id="@+id/detailedRecipeFragment"
         android:name="com.mobileapp.recipepal.DetailedRecipeFragment"
         android:label="fragment_detailed_recipe"
         tools:layout="@layout/fragment_detailed_recipe" >
+
+        <argument
+            android:name="recipeId"
+            app:argType="integer" />
+
         <action
             android:id="@+id/action_detailedRecipeFragment_to_recipeFragment"
             app:destination="@id/recipeFragment" />
     </fragment>
+
+
     <fragment
         android:id="@+id/updateRecipeFragment"
         android:name="com.mobileapp.recipepal.UpdateRecipeFragment"

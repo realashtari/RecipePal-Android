@@ -41,6 +41,9 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
     val nav_version = "2.8.3"
 
+    implementation ("com.github.bumptech.glide:glide:4.13.2")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.13.2")
+
     // Jetpack Compose integration
     implementation("androidx.navigation:navigation-compose:$nav_version")
 

@@ -31,6 +31,7 @@ public class CreateRecipeFragment extends Fragment {
                 Navigation.findNavController(binding.getRoot()).navigate(action);
             }
         });
+
         binding.cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

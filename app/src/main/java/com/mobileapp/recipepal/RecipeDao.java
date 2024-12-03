@@ -1,5 +1,6 @@
 package com.mobileapp.recipepal;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,10 +15,10 @@ public interface RecipeDao {
     List<Recipe> getAll();
 
     @Query("SELECT * FROM recipe WHERE uid = :recipeId")
-    Recipe loadById(int recipeId);
+    LiveData<Recipe> loadById(int recipeId);
 
     @Insert
-    void insertSingle(Recipe recipe);
+    long insertSingle(Recipe recipe);
 
     @Delete
     void deleteSingle(Recipe recipe);

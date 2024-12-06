@@ -28,7 +28,9 @@
     <string name="detailed_instructions">Instructions:</string>
     <string name="detailed_close_button">Close</string>
 
-
+    <string name="addImageURL">Add Image URL</string>
+    <string name="updateRecipe">Update</string>
+    <string name="updateTitle">Update Title</string>
 
 
     <!--Menu Bottom Nav Bar-->-->

@@ -75,7 +75,6 @@ public class DetailedRecipeFragment extends Fragment {
                                 .load(R.drawable.default_food)
                                 .override(600,400)
                                 .into(recipeImageView);
-                        //recipeImageView.setImageResource(R.drawable.default_food); // placeholder food image
                     }
 
                 }

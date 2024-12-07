@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.mobileapp.recipepal.WelcomeFragment"
-        android:label="fragment_welcome"
+        android:label="RecipePal"
         tools:layout="@layout/fragment_welcome" >
         <action
             android:id="@+id/action_welcomeFragment_to_recipeFragment"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/recipeFragment"
         android:name="com.mobileapp.recipepal.RecipeFragment"
-        android:label="fragment_recipe"
+        android:label="View &amp; Create Recipes"
         tools:layout="@layout/fragment_recipe" >
 
         <action
@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/createRecipeFragment"
         android:name="com.mobileapp.recipepal.CreateRecipeFragment"
-        android:label="fragment_create_recipe"
+        android:label="Create New Recipe"
         tools:layout="@layout/fragment_create_recipe" >
         <action
             android:id="@+id/action_createRecipeFragment_to_recipeFragment"
@@ -46,7 +46,7 @@
     <fragment
         android:id="@+id/detailedRecipeFragment"
         android:name="com.mobileapp.recipepal.DetailedRecipeFragment"
-        android:label="fragment_detailed_recipe"
+        android:label="Recipe Details"
         tools:layout="@layout/fragment_detailed_recipe" >
 
         <argument
@@ -62,10 +62,16 @@
     <fragment
         android:id="@+id/updateRecipeFragment"
         android:name="com.mobileapp.recipepal.UpdateRecipeFragment"
-        android:label="fragment_update_recipe"
+        android:label="Update Recipe"
         tools:layout="@layout/fragment_update_recipe" >
         <action
             android:id="@+id/action_updateRecipeFragment_to_recipeFragment"
             app:destination="@id/recipeFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.mobileapp.recipepal.HelpFragment"
+        android:label="Help"
+        tools:layout="@layout/fragment_help" />
 </navigation>

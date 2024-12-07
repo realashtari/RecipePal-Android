@@ -32,9 +32,14 @@
     <string name="updateRecipe">Update</string>
     <string name="updateTitle">Update Title</string>
 
-
     <!--Menu Bottom Nav Bar-->-->
     <string name="menu_drawer_item_back">Back</string>
+
+    <!--Menu Top Toolbar-->-->
+    <string name="help_title">Help</string>
+
+    <string name="help_fragment_info">Here is some information on how to use the app</string>
+
 
     <string name="confrim_deletion">Confrim Deletion</string>
     <string name="ask_deletion_confrimation">Are you sure you want to delete?</string>

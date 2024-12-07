@@ -1,335 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".RecipeFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
-    <LinearLayout
-
+    <TextView
+        android:id="@+id/recipesHeaderTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recipeFragmentTitle"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="30sp"/>
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/recipesHeaderTextView"
-            android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/recipeFragmentTitle"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
-            android:textSize="30sp"/>
+            />
+    </ScrollView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_margin="10dp"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:visibility="visible">
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:id="@+id/addButton"
+        app:icon="@drawable/add_icon"
 
-                <!-- Recipe Image-->
-                <ImageView
-                    android:id="@+id/lasagnaImageView"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/lasagna_image"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/rightBorderImage"
-                    tools:src="@tools:sample/avatars" />
 
+        android:minHeight="0dp"
+        android:minWidth="0dp"
 
-                <!-- Border for image-->
-                <View
-                    android:id="@+id/rightBorderImage"
-                    android:layout_width="2dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintHorizontal_bias="0.4"
-                    android:background="@color/black"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
+        app:cornerRadius="360dp"
 
+        android:layout_marginEnd="5dp"
+        android:layout_gravity="bottom|end"
 
-               <!-- Recipe Label Text View-->
-                <TextView
-                    android:id="@+id/lasagnaRecipeLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    app:layout_constraintStart_toEndOf="@id/rightBorderImage"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:text="@string/lasagna" />
+        android:insetBottom="0dp"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        app:iconPadding="0dp"
+        app:iconGravity="textStart"
 
+        android:contentDescription="editButton"/>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/viewRecipeButton"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
+</LinearLayout>
 
-                    android:contentDescription="deleteButton"
-                    app:icon="@drawable/view_icon"
-
-                    android:insetBottom="0dp"
-                    android:insetLeft="0dp"
-                    android:insetTop="0dp"
-                    android:insetRight="0dp"
-                    app:iconPadding="5dp"
-                    app:iconGravity="textStart"
-
-                    android:text="@string/view"
-                    app:cornerRadius="5dp"
-
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-
-                    app:layout_constraintBottom_toBottomOf="@id/deleteRecipeButton"
-                    app:layout_constraintEnd_toStartOf="@id/editRecipeButton"
-                    app:layout_constraintStart_toEndOf="@id/deleteRecipeButton"
-                    app:layout_constraintTop_toTopOf="@id/deleteRecipeButton"
-                    />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/deleteRecipeButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-
-                    android:layout_marginStart="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:contentDescription="deleteButton"
-
-
-                    android:insetLeft="0dp"
-                    android:insetTop="0dp"
-                    android:insetRight="0dp"
-                    android:insetBottom="0dp"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-
-                    app:cornerRadius="5dp"
-                    app:icon="@drawable/delete_icon"
-                    app:iconGravity="textStart"
-                    app:iconPadding="0dp"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/rightBorderImage" />
-
-
-                <!-- Edit Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/editRecipeButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-
-                    android:layout_marginEnd="5dp"
-                    android:contentDescription="editButton"
-
-                    android:insetLeft="0dp"
-                    android:insetTop="0dp"
-                    android:insetRight="0dp"
-                    android:insetBottom="0dp"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-
-                    app:cornerRadius="5dp"
-                    app:icon="@drawable/edit_icon"
-                    app:iconGravity="textStart"
-                    app:iconPadding="0dp"
-
-                    app:layout_constraintBottom_toBottomOf="@id/viewRecipeButton"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_margin="10dp"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="120dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <!-- Recipe Image-->
-                <ImageView
-                    android:id="@+id/pancakesImageView"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/pancakes_template"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/rightBorderImage2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@tools:sample/avatars" />
-
-
-                <!-- Border for image-->
-
-
-                <!-- Recipe Label Text View-->
-
-                <View
-                    android:id="@+id/rightBorderImage2"
-                    android:layout_width="2dp"
-                    android:layout_height="0dp"
-                    android:background="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.4"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/pancakesRecipeLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/pancakes"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@id/rightBorderImage2"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                <!-- View Button-->
-
-                <!-- Delete Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/viewRecipeButton2"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-
-                    android:contentDescription="deleteButton"
-                    app:icon="@drawable/view_icon"
-
-                    android:insetBottom="0dp"
-                    android:insetLeft="0dp"
-                    android:insetTop="0dp"
-                    android:insetRight="0dp"
-                    app:iconPadding="5dp"
-                    app:iconGravity="textStart"
-
-                    android:text="@string/view"
-                    app:cornerRadius="5dp"
-
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-
-                    app:layout_constraintBottom_toBottomOf="@id/deleteRecipeButton2"
-                    app:layout_constraintEnd_toStartOf="@id/editRecipeButton2"
-                    app:layout_constraintStart_toEndOf="@id/deleteRecipeButton2"
-                    app:layout_constraintTop_toTopOf="@id/deleteRecipeButton2"
-                     />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/deleteRecipeButton2"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-
-                    android:layout_marginStart="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:contentDescription="deleteButton"
-
-
-                    android:insetLeft="0dp"
-                    android:insetTop="0dp"
-                    android:insetRight="0dp"
-                    android:insetBottom="0dp"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-
-                    app:cornerRadius="5dp"
-                    app:icon="@drawable/delete_icon"
-                    app:iconGravity="textStart"
-                    app:iconPadding="0dp"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/rightBorderImage2" />
-
-
-                <!-- Edit Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/editRecipeButton2"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-
-                    android:layout_marginEnd="5dp"
-                    android:contentDescription="editButton"
-
-                    android:insetLeft="0dp"
-                    android:insetTop="0dp"
-                    android:insetRight="0dp"
-                    android:insetBottom="0dp"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-
-                    app:cornerRadius="5dp"
-                    app:icon="@drawable/edit_icon"
-                    app:iconGravity="textStart"
-                    app:iconPadding="0dp"
-
-                    app:layout_constraintBottom_toBottomOf="@+id/viewRecipeButton2"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:id="@+id/addButton"
-            app:icon="@drawable/add_icon"
-
-
-            android:minHeight="0dp"
-            android:minWidth="0dp"
-
-            app:cornerRadius="360dp"
-
-            android:layout_marginEnd="5dp"
-            android:layout_gravity="bottom|end"
-
-            android:insetBottom="0dp"
-            android:insetLeft="0dp"
-            android:insetTop="0dp"
-            android:insetRight="0dp"
-            app:iconPadding="0dp"
-            app:iconGravity="textStart"
-
-            android:contentDescription="editButton"/>
-
-    </LinearLayout>
-</ScrollView>
 

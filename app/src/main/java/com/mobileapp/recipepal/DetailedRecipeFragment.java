@@ -67,11 +67,15 @@ public class DetailedRecipeFragment extends Fragment {
                     // Load the image into the ImageView using Glide
                     if (imageUrl != null && !imageUrl.isEmpty()) {
                         Glide.with(getContext())
-                                .load(imageUrl) // Load the image from the URL
+                                .load(imageUrl)  // Load the image from the URL
                                 .into(recipeImageView); // ImageView where you want to display the image
                     } else {
                         // Case where there is no image URL, default image used
-                        recipeImageView.setImageResource(R.drawable.default_food); // placeholder food image
+                        Glide.with(getContext())
+                                .load(R.drawable.default_food)
+                                .override(600,400)
+                                .into(recipeImageView);
+                        //recipeImageView.setImageResource(R.drawable.default_food); // placeholder food image
                     }
 
                 }

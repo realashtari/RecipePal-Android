@@ -12,7 +12,10 @@ import java.util.List;
 @Dao
 public interface RecipeDao {
     @Query("SELECT * FROM recipe")
-    List<Recipe> getAll();
+    LiveData<List<Recipe>> getAll();
+
+    @Query("SELECT * FROM recipe")
+    List<Recipe> getAllSync();
 
     @Query("SELECT * FROM recipe WHERE uid = :recipeId")
     LiveData<Recipe> loadById(int recipeId);

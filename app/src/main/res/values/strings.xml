@@ -4,7 +4,7 @@
     <string name="lasagna">Lasagna</string>
     <string name="view">View</string>
     <string name="pancakes">Pancakes</string>
-    <string name="recipeFragmentTitle">Here are all the recipes!</string>
+    <string name="recipeFragmentTitle">Recipes</string>
     <string name="welcome_header">Welcome to RecipePal!</string>
     <string name="welcome_p">Click the button to get started</string>
     <string name="welcome_button">Start</string>

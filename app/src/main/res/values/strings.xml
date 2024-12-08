@@ -38,7 +38,16 @@
     <!--Menu Top Toolbar-->-->
     <string name="help_title">Help</string>
 
-    <string name="help_fragment_info">Here is some information on how to use the app</string>
+    <string name="help_fragment_title">Here\'s how to navigate through the app</string>
+
+    <string name="help_fragment_info">
+
+1. After clicking "start" in home screen, you\'ll see a list of delicious recipes. Tap on the "view" icon to view recipe details.\n
+\n2. In the detailed view, you\'ll find the recipe\'s ingredients and instructions. You can scroll to read through them.\n
+\n3. Use the "Close" button to return to the recipe list.\n
+\n4. You can always return to the previous screen by tapping the back arrow button located at the top left corner of the app.\n
+\nEnjoy cooking!
+    </string>
 
 
     <string name="confrim_deletion">Confrim Deletion</string>

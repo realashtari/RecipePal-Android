@@ -16,7 +16,7 @@
         android:elevation="4dp"
         app:titleTextColor="@android:color/white"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:paddingTop="10dp"/>
+        android:paddingTop="10dp" />
 
     <!-- NavHostFragment -->
     <androidx.fragment.app.FragmentContainerView
@@ -26,5 +26,4 @@
         android:layout_height="match_parent"
         app:navGraph="@navigation/nav_graph"
         app:defaultNavHost="true" />
-
 </LinearLayout>

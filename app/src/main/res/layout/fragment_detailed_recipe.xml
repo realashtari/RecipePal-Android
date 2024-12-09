@@ -24,7 +24,7 @@
                 android:layout_marginTop="2dp"
                 android:gravity="center"
                 android:text="@string/textView_Recipe_Title"
-                android:textSize="25sp"
+                android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:text="@string/detailed_ingredients"
-                android:textSize="21sp"
+                android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/imageView"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
                 android:layout_marginTop="8dp"
                 android:padding="8dp"
                 android:text="@string/recipe_ingredient_text"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 app:layout_constraintTop_toBottomOf="@id/textView_Ingredients_Title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:text="@string/detailed_instructions"
-                android:textSize="21sp"
+                android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/textView_Ingredients"
                 app:layout_constraintStart_toStartOf="parent"
@@ -99,7 +99,7 @@
                     android:lineSpacingExtra="4dp"
                     android:padding="8dp"
                     android:text="@string/recipe_instructions_text"
-                    android:textSize="18sp" />
+                    android:textSize="24sp" />
             </androidx.core.widget.NestedScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

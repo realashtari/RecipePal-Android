@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
             NavigationUI.setupWithNavController(binding.topToolbar, navController, appBarConfiguration);
 
         }
-
         // Handle Window Insets for the Navigation Host Fragment
         ViewCompat.setOnApplyWindowInsetsListener(binding.navHostFragment, (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -75,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

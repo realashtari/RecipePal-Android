@@ -76,7 +76,6 @@ public class DetailedRecipeFragment extends Fragment {
                                 .override(600,400)
                                 .into(recipeImageView);
                     }
-
                 }
             }
         });
@@ -90,8 +89,13 @@ public class DetailedRecipeFragment extends Fragment {
                 Navigation.findNavController(binding.getRoot()).navigate(action);
             }
         });
-
         return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        binding = null;
+        super.onDestroyView();
     }
 }
 

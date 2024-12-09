@@ -18,6 +18,7 @@ public class CreateRecipeFragment extends Fragment {
 
     private FragmentCreateRecipeBinding binding;
     private CreateRecipeViewModel createRecipeViewModel;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

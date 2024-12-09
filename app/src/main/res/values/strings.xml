@@ -44,14 +44,14 @@
 
 1. After clicking "start" in home screen, you\'ll see a list of delicious recipes. Tap on the "view" icon to view recipe details.\n
 \n2. In the detailed view, you\'ll find the recipe\'s ingredients and instructions. You can scroll to read through them.\n
-\n3. Use the "Close" button to return to the recipe list.\n
-\n4. You can always return to the previous screen by tapping the back arrow button located at the top left corner of the app.\n
+\n3. Tap on the pencil icon to edit the recipe. You must press the "update" button for the changes to be saved.\n
+\n4. Tap on the trash icon to delete the recipe. You will not be able to recover a recipe once it has been deleted.\n
+\n5. Tap on the plus icon at the bottom right of the recipe dashboard screen to create a new recipe.\n
+\n6. Use the "Close" or "Cancel" button to return to the recipe list.\n
+\n7. You can always return to the previous screen by tapping the back arrow button located at the top left corner of the app.\n
 \nEnjoy cooking!
     </string>
-
-
     <string name="confrim_deletion">Confrim Deletion</string>
     <string name="ask_deletion_confrimation">Are you sure you want to delete?</string>
     <string name="deleteButton">Delete</string>
-
 </resources>

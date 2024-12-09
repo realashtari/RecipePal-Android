@@ -22,4 +22,3 @@ public class Recipe {
     @ColumnInfo(name = "image_url")
     public String ImageUrl;
 }
-

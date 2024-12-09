@@ -40,9 +40,9 @@
         <EditText
             android:id="@+id/urlText"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="100sp"
             android:gravity="top"
-            android:padding="8dp"
+            android:padding="8sp"
             android:scrollbars="vertical"
             android:hint="@string/addImageURL"/>
 
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16sp">
             <Button
                 android:id="@+id/cancelButton"
                 android:layout_width="wrap_content"
@@ -62,7 +62,6 @@
                 android:id="@+id/updateButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="@string/updateRecipe" />
         </LinearLayout>
     </LinearLayout>

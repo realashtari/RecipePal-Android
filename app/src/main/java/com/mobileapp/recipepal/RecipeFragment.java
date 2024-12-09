@@ -23,10 +23,9 @@ public class RecipeFragment extends Fragment {
     private FragmentRecipeBinding binding;
     private RecipeViewModel recipeViewModel;
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
-
-
-    Dialog dialog;
-    Button buttonDialogCancel, buttonDialogDelete;
+    // We removed the dialog box functionality for now
+    //    Dialog dialog;
+    //    Button buttonDialogCancel, buttonDialogDelete;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,8 +79,12 @@ public class RecipeFragment extends Fragment {
                 recyclerView.setAdapter(adapter);
             }
         });
-
-
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        binding = null;
+        super.onDestroyView();
     }
 }

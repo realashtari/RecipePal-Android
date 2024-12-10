@@ -37,6 +37,7 @@ public class RecipeFragment extends Fragment {
 
         recipeViewModel = new ViewModelProvider(this).get(RecipeViewModel.class);
 
+//        Removed functionality at this moment
 //        dialog = new Dialog(binding.getRoot().getContext());
 //        dialog.setContentView(R.layout.dialog_box);
 //        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -69,12 +70,15 @@ public class RecipeFragment extends Fragment {
             }
         });
 
-
+        //Observer for all recipes to see if List Changes
         recipeViewModel.getAllRecipes().observe(getViewLifecycleOwner(), new Observer<List<Recipe>>() {
             @Override
+            //Listen for list changed
             public void onChanged(List<Recipe> recipeList) {
+                //Initialize recyclerView and set layout
                 RecyclerView recyclerView = binding.recyclerView;
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                //Initialize Adapter and set Adapter
                 Adapter adapter = new Adapter(recipeList, recipeViewModel);
                 recyclerView.setAdapter(adapter);
             }

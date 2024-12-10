@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RecipeFragment"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/recipesHeaderTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recipeFragmentTitle"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="30sp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:id="@+id/addButton"
+        app:icon="@drawable/add_icon"
+
+
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+
+        app:cornerRadius="360dp"
+
+        android:layout_marginEnd="5dp"
+        android:layout_gravity="bottom|end"
+
+        android:insetBottom="0dp"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        app:iconPadding="0dp"
+        app:iconGravity="textStart"
+
+        android:contentDescription="editButton"/>
+
+</LinearLayout>
+
+

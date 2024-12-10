@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:layout_margin="10dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RecipeFragment"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:visibility="visible">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Recipe Image-->
+        <ImageView
+            android:id="@+id/foodImageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/lasagna_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/rightBorderImage"
+            tools:src="@tools:sample/avatars" />
+
+
+        <!-- Border for image-->
+        <View
+            android:id="@+id/rightBorderImage"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            app:layout_constraintHorizontal_bias="0.175"
+            android:background="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+        <!-- Recipe Label Text View-->
+        <TextView
+            android:id="@+id/recipeLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@id/rightBorderImage"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="@string/lasagna" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/viewRecipeButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+
+            android:contentDescription="@string/view"
+            app:icon="@drawable/view_icon"
+
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            app:iconPadding="5dp"
+            app:iconGravity="textStart"
+
+            android:text="@string/view"
+            app:cornerRadius="5dp"
+
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+
+            app:layout_constraintBottom_toBottomOf="@id/deleteRecipeButton"
+            app:layout_constraintEnd_toStartOf="@id/editRecipeButton"
+            app:layout_constraintStart_toEndOf="@id/deleteRecipeButton"
+            app:layout_constraintTop_toTopOf="@id/deleteRecipeButton"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/deleteRecipeButton"
+            android:layout_width="144dp"
+            android:layout_height="48dp"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:contentDescription="@string/deleteButton"
+
+
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+
+            android:text="@string/deleteButton"
+            app:cornerRadius="5dp"
+            app:icon="@drawable/delete_icon"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rightBorderImage" />
+
+
+        <!-- Edit Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/editRecipeButton"
+            android:layout_width="144dp"
+            android:layout_height="48dp"
+
+            android:layout_marginEnd="5dp"
+            android:contentDescription="@string/edit_button"
+
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+
+            android:text="@string/edit_button"
+            app:cornerRadius="5dp"
+            app:icon="@drawable/edit_icon"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+
+            app:layout_constraintBottom_toBottomOf="@id/viewRecipeButton"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

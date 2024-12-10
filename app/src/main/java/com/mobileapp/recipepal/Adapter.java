@@ -1,33 +1,33 @@
 package com.mobileapp.recipepal;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import java.net.URL;
 import java.util.List;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+
+//Adapter Class for Recycler View
 public class Adapter extends RecyclerView.Adapter<ViewHolder> {
+    // Define variables for class
     List<Recipe> items;
     RecipeViewModel recipeViewModel;
     public Context parentContext;
 
+    //Constructor with list of items, and the viewModel
     public Adapter (List<Recipe> items, RecipeViewModel viewModel){
         this.items = items;
         this.recipeViewModel = viewModel;
@@ -37,9 +37,9 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         parentContext = parent.getContext();
-        View view = LayoutInflater.from(parentContext).
+        View view;
+        view = LayoutInflater.from(parentContext).
                 inflate(R.layout.card_template, parent, false);
-
         return new ViewHolder(view).linkAdapter(this);
     }
 
@@ -68,19 +68,23 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> {
     }
 }
 
+//View Holder for RecyclerView
 class ViewHolder extends RecyclerView.ViewHolder {
-    // Initialize UI components
+    // Declare UI components
     TextView recipeLabelTextView;
     ImageView foodImageView;
     private Adapter adapter;
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
+    //constructor
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
 
+        // Initialize UI components
         recipeLabelTextView = itemView.findViewById(R.id.recipeLabelTextView);
         foodImageView = itemView.findViewById(R.id.foodImageView);
 
+        //Listener for Delete Button
         itemView.findViewById(R.id.deleteRecipeButton).setOnClickListener(view ->  {
             Recipe recipe = adapter.items.get(getAdapterPosition());
 

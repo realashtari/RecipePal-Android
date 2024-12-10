@@ -54,4 +54,5 @@
     <string name="confrim_deletion">Confrim Deletion</string>
     <string name="ask_deletion_confrimation">Are you sure you want to delete?</string>
     <string name="deleteButton">Delete</string>
+    <string name="edit_button">Edit</string>
 </resources>

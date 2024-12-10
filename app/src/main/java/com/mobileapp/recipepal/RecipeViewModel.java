@@ -29,8 +29,10 @@ public class RecipeViewModel extends AndroidViewModel {
     // Method to get the recipe by its id as LiveData
     public LiveData<Recipe> getRecipeById(int recipeId) { return recipeDao.loadById(recipeId); }
 
+    // Method to get all recipes as LiveData
     public LiveData<List<Recipe>> getAllRecipes() {return recipeDao.getAll();}
 
+    // Method to delete a recipe
     public void deleteSingle(Recipe recipe) {
         recipeDao.deleteSingle(recipe);
     }

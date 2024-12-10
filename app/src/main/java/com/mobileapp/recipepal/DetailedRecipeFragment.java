@@ -18,21 +18,23 @@ import com.bumptech.glide.Glide;
 import com.mobileapp.recipepal.databinding.FragmentDetailedRecipeBinding;
 
 public class DetailedRecipeFragment extends Fragment {
-    int recipeId;
+    int recipeId; // Variable to store the recipe ID
 
-    private FragmentDetailedRecipeBinding binding;
-    private RecipeViewModel recipeViewModel;
+    private FragmentDetailedRecipeBinding binding; // ViewBinding instance
+    private RecipeViewModel recipeViewModel; // ViewModel instance
 
-    // Views
+    // UI Views to display recipe details
     private TextView titleTextView;
     private ImageView recipeImageView;
     private TextView instructionsTextView;
     private TextView ingredientsTextView;
 
+    // Called when the fragment's view is created
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        // Setting up ViewBinding
         binding = FragmentDetailedRecipeBinding.inflate(inflater, container, false);
         View rootView = binding.getRoot();
 
@@ -92,6 +94,7 @@ public class DetailedRecipeFragment extends Fragment {
         return rootView;
     }
 
+    // This method is called when the view is no longer needed; prevents memory leaks
     @Override
     public void onDestroyView() {
         binding = null;

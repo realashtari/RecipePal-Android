@@ -1,34 +1,28 @@
 package com.mobileapp.recipepal;
 
 import android.content.Context;
-import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
-
+import com.mobileapp.recipepal.databinding.CardTemplateBinding;
 import java.util.List;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
-//Adapter Class for Recycler View
+// Adapter Class for RecyclerView
 public class Adapter extends RecyclerView.Adapter<ViewHolder> {
-    // Define variables for class
+    // Define variables for the adapter
     List<Recipe> items;
     RecipeViewModel recipeViewModel;
     public Context parentContext;
 
-    //Constructor with list of items, and the viewModel
-    public Adapter (List<Recipe> items, RecipeViewModel viewModel){
+    // Constructor to initialize the adapter
+    public Adapter(List<Recipe> items, RecipeViewModel viewModel) {
         this.items = items;
         this.recipeViewModel = viewModel;
     }
@@ -37,28 +31,28 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         parentContext = parent.getContext();
-        View view;
-        view = LayoutInflater.from(parentContext).
-                inflate(R.layout.card_template, parent, false);
+        View view = LayoutInflater.from(parentContext)
+                .inflate(R.layout.card_template, parent, false);
         return new ViewHolder(view).linkAdapter(this);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String imageUrl = items.get(position).ImageUrl;
-        holder.recipeLabelTextView.setText(items.get(position).recipeName);
+        Recipe recipe = items.get(position); // Get the recipe for this position
+        holder.bindData(recipe); // Use the bindData method to bind the data to views
 
+        String imageUrl = recipe.ImageUrl;
         if (imageUrl != null && !imageUrl.isEmpty()) {
             Glide.with(parentContext)
                     .load(imageUrl)
-                    .override(600,400)// Load the image from the URL
-                    .into(holder.foodImageView); // ImageView where you want to display the image
+                    .override(600, 400) // Load the image from the URL
+                    .into(holder.binding.foodImageView); // ImageView where you want to display the image
         } else {
-            // Case where there is no image URL, default image used
+            // Case where there is no image URL, use the default image
             Glide.with(parentContext)
                     .load(R.drawable.default_food)
-                    .override(600,400)
-                    .into(holder.foodImageView);
+                    .override(600, 400)
+                    .into(holder.binding.foodImageView);
         }
     }
 
@@ -68,53 +62,51 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> {
     }
 }
 
-//View Holder for RecyclerView
+// ViewHolder class for RecyclerView
 class ViewHolder extends RecyclerView.ViewHolder {
-    // Declare UI components
-    TextView recipeLabelTextView;
-    ImageView foodImageView;
     private Adapter adapter;
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
+    public final CardTemplateBinding binding; // ViewBinding for the layout
 
-    //constructor
+    // Constructor
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        // Initialize UI components
-        recipeLabelTextView = itemView.findViewById(R.id.recipeLabelTextView);
-        foodImageView = itemView.findViewById(R.id.foodImageView);
+        // Use ViewBinding to bind the views
+        binding = CardTemplateBinding.bind(itemView);
 
-        //Listener for Delete Button
-        itemView.findViewById(R.id.deleteRecipeButton).setOnClickListener(view ->  {
+        // Set up click listeners using the binding views directly
+        binding.deleteRecipeButton.setOnClickListener(view -> {
             Recipe recipe = adapter.items.get(getAdapterPosition());
 
-            executorService.execute(new Runnable() {
-                @Override
-                public void run() {
-                    adapter.recipeViewModel.deleteSingle(recipe);
-                }
-            });
+            executorService.execute(() -> adapter.recipeViewModel.deleteSingle(recipe));
 
             adapter.items.remove(getAdapterPosition());
             adapter.notifyItemRemoved(getAdapterPosition());
         });
 
-        itemView.findViewById(R.id.viewRecipeButton).setOnClickListener(view -> {
-            NavDirections action = RecipeFragmentDirections.
-                    actionRecipeFragmentToDetailedRecipeFragment(adapter.items.get(getAdapterPosition()).uid);
+        binding.viewRecipeButton.setOnClickListener(view -> {
+            NavDirections action = RecipeFragmentDirections
+                    .actionRecipeFragmentToDetailedRecipeFragment(adapter.items.get(getAdapterPosition()).uid);
 
-            Navigation.findNavController((View) itemView.getParent()).navigate(action);
+            Navigation.findNavController(itemView).navigate(action);
         });
 
-        itemView.findViewById(R.id.editRecipeButton).setOnClickListener(view -> {
-            NavDirections action =
-                    RecipeFragmentDirections.actionRecipeFragmentToUpdateRecipeFragment(adapter.items.get(getAdapterPosition()).uid);
+        binding.editRecipeButton.setOnClickListener(view -> {
+            NavDirections action = RecipeFragmentDirections
+                    .actionRecipeFragmentToUpdateRecipeFragment(adapter.items.get(getAdapterPosition()).uid);
 
-            Navigation.findNavController((View) itemView.getParent()).navigate(action);
+            Navigation.findNavController(itemView).navigate(action);
         });
     }
 
-    public ViewHolder linkAdapter (Adapter adapter) {
+    // Method to bind data from a Recipe object to the ViewHolder's views
+    public void bindData(Recipe recipe) {
+        binding.recipeLabelTextView.setText(recipe.recipeName);
+    }
+
+    // Link the adapter to the ViewHolder
+    public ViewHolder linkAdapter(Adapter adapter) {
         this.adapter = adapter;
         return this;
     }

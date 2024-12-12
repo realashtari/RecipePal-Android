@@ -18,7 +18,12 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
+/**
+ * Fragment Responsible for displaying a list of all of the recipes for the user.
+ * This is the main screen after the welcomeFragment.
+ * From this fragment, a user can Create, Read, Update, and Delete any of the Recipes within the
+ * database.
+ */
 public class RecipeFragment extends Fragment {
     private FragmentRecipeBinding binding;
     private RecipeViewModel recipeViewModel;
@@ -37,7 +42,12 @@ public class RecipeFragment extends Fragment {
 
         recipeViewModel = new ViewModelProvider(this).get(RecipeViewModel.class);
 
-//        Removed functionality at this moment
+//        *** Removed dialog box functionality at this moment ***
+//        This was used as a popup box that asks the user to confirm that they want to delete the
+//        recipe from the Room database. However, we ran out of time and did not implement this into
+//        our RecyclerView implementation. This was working before when we had hardcoded recipes
+//        only.
+
 //        dialog = new Dialog(binding.getRoot().getContext());
 //        dialog.setContentView(R.layout.dialog_box);
 //        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -59,7 +69,6 @@ public class RecipeFragment extends Fragment {
 //                dialog.dismiss();
 //            }
 //        });
-
 
         binding.addButton.setOnClickListener(new View.OnClickListener() {
             @Override

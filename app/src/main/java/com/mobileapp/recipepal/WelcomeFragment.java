@@ -12,6 +12,10 @@ import android.view.ViewGroup;
 
 import com.mobileapp.recipepal.databinding.FragmentWelcomeBinding;
 
+/**
+ * Fragment which is the entry-point for the application. This fragment navigates directly to the
+ * RecipeFragment when the user clicks the "Start" button.
+ */
 public class WelcomeFragment extends Fragment {
     private FragmentWelcomeBinding binding;
 
@@ -22,11 +26,9 @@ public class WelcomeFragment extends Fragment {
 
         View view = binding.getRoot();
         // Inflate the layout for this fragment
-
         binding.welcomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 NavDirections action
                         = WelcomeFragmentDirections.actionWelcomeFragmentToRecipeFragment();

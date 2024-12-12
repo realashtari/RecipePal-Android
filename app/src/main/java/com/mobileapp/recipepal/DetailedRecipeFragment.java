@@ -17,11 +17,17 @@ import androidx.lifecycle.ViewModelProvider;
 import com.bumptech.glide.Glide;
 import com.mobileapp.recipepal.databinding.FragmentDetailedRecipeBinding;
 
+/**
+ * Fragment Responsible for showing a detailed view of a single recipe to the user.
+ * The Recipe is read-only on this screen.
+ * DetailedRecipeFragment will receive a recipe uid, which it will then use to query for a single
+ * recipe in the database.
+ */
 public class DetailedRecipeFragment extends Fragment {
     int recipeId; // Variable to store the recipe ID
 
     private FragmentDetailedRecipeBinding binding; // ViewBinding instance
-    private RecipeViewModel recipeViewModel; // ViewModel instance
+    private DetailedRecipeViewModel recipeViewModel; // ViewModel instance
 
     // UI Views to display recipe details
     private TextView titleTextView;
@@ -51,7 +57,7 @@ public class DetailedRecipeFragment extends Fragment {
         }
 
         // Initialize the ViewModel
-        recipeViewModel = new ViewModelProvider(this).get(RecipeViewModel.class);
+        recipeViewModel = new ViewModelProvider(this).get(DetailedRecipeViewModel.class);
 
         // Observe LiveData from ViewModel for the recipe details
         recipeViewModel.getRecipeById(recipeId).observe(getViewLifecycleOwner(), new Observer<Recipe>() {
@@ -101,4 +107,3 @@ public class DetailedRecipeFragment extends Fragment {
         super.onDestroyView();
     }
 }
-

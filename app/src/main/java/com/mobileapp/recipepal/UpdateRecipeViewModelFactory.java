@@ -6,6 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+/**
+ * A view model factory to allow us to pass 2 arguments to the UpdateRecipeViewModel constructor.
+ */
 public class UpdateRecipeViewModelFactory implements ViewModelProvider.Factory {
     private final int recipeId;
     private final Application application;

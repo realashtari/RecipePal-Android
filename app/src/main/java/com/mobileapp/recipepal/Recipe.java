@@ -1,10 +1,12 @@
 package com.mobileapp.recipepal;
 
 import androidx.room.ColumnInfo;
-import androidx.room.Dao;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ * Recipe Schema in the Room database.
+ */
 @Entity
 public class Recipe {
     @PrimaryKey(autoGenerate = true)

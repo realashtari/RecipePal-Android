@@ -4,19 +4,17 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
 
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
+/**
+ * ViewModel for the RecipeFragment.
+ * Responsible for dynamically loading all of the recipes from the database.
+ * The user can also delete a single recipe from the database.
+ */
 public class RecipeViewModel extends AndroidViewModel {
 
     private RecipeDao recipeDao;
-    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
-    private List<Recipe> recipeList;
-
 
     public RecipeViewModel(Application application) {
         super(application);
@@ -26,17 +24,17 @@ public class RecipeViewModel extends AndroidViewModel {
         recipeDao = appDatabase.recipeDao();
     }
 
-    // Method to get the recipe by its id as LiveData
-    public LiveData<Recipe> getRecipeById(int recipeId) { return recipeDao.loadById(recipeId); }
-
-    // Method to get all recipes as LiveData
+    /**
+     * @return the list of recipes that will be shown dynamically to the user
+     * @see LiveData<List<Recipe>>
+     */
     public LiveData<List<Recipe>> getAllRecipes() {return recipeDao.getAll();}
 
-    // Method to delete a recipe
+    /**
+     * Method to delete a recipe
+     * @param recipe the recipe the user wishes to remove from the DB
+     */
     public void deleteSingle(Recipe recipe) {
         recipeDao.deleteSingle(recipe);
     }
-
-
-
 }

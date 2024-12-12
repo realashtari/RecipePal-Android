@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import com.mobileapp.recipepal.databinding.FragmentCreateRecipeBinding;
 
+/**
+ * Fragment Responsible for adding new recipes to the database
+ */
 public class CreateRecipeFragment extends Fragment {
 
     private FragmentCreateRecipeBinding binding;

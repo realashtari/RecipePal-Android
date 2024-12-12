@@ -14,6 +14,18 @@ import android.view.ViewGroup;
 
 import com.mobileapp.recipepal.databinding.FragmentUpdateRecipeBinding;
 
+/**
+ * Fragment Responsible for allowing the user to update a single recipe.
+ * The user can update any of the fields (title, instructions, ingredients, imageUrl), or they can
+ * hit the cancel button, which will discard any changes made to the recipe.
+ *
+ * UpdateRecipeFragment will receive a recipe uid, which it will then use to query for a single
+ * recipe in the database. It will then load the returned recipe as a placeholder for the EditTexts
+ * on the UI.
+ *
+ * It then uses the uid it received to update the recipe in the database based on the current text
+ * in all of the EditText components.
+ */
 public class UpdateRecipeFragment extends Fragment {
     private FragmentUpdateRecipeBinding binding;
     private UpdateRecipeViewModel viewModel;

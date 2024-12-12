@@ -9,6 +9,12 @@ import androidx.room.Update;
 
 import java.util.List;
 
+/**
+ * Recipe Data Access Object (DAO), helps us easily perform database operations.
+ *
+ * We have the ability to Create (single recipe), read (all recipes and single recipe),
+ *  update (single recipe), delete (single recipe)
+ */
 @Dao
 public interface RecipeDao {
     @Query("SELECT * FROM recipe")

@@ -1,3 +1,35 @@
+/*
+Mobile App Development I -- COMP.4630 Honor Statement
+The practice of good ethical behavior is essential for maintaining good order
+in the classroom, providing an enriching learning experience for students,
+and training as a practicing computing professional upon graduation. This
+practice is manifested in the University's Academic Integrity policy.
+Students are expected to strictly avoid academic dishonesty and adhere to the
+Academic Integrity policy as outlined in the course catalog. Violations will
+be dealt with as outlined therein. All programming assignments in this class
+are to be done by the student alone unless otherwise specified. No outside
+help is permitted except the instructor and approved tutors.
+I
+certify that the work submitted with this assignment is mine and was
+generated in a manner consistent with this document, the course academic
+policy on the course website on Blackboard, and the UMass Lowell academic
+code.
+Date: 12/11/24
+Names: Michael Morcos, Nika Ashtarzadeh, Matthew Hudzikiewicz, Ryhan Mortuza
+*/
+/***********************************************
+ Authors: Michael Morcos, Nika Ashtarzadeh, Matthew Hudzikiewicz, Ryhan Mortuza
+ Date: 12/11/24
+ Purpose: Term project to demonstrate our skills that we have learned throughout the semester, while
+ also creating something new and unique.
+ What Learned: We have learned how to use a Room Database, Glide Library to load images from the
+ internet, and a RecyclerView to dynamically load cards onto the UI.
+ Sources of Help:
+        Glide library: https://github.com/bumptech/glide
+        RecyclerView library: https://developer.android.com/develop/ui/views/layout/recyclerview
+        Room database: https://developer.android.com/training/data-storage/room/
+ Time Spent (Hours): ~30 hours
+ ***********************************************/
 package com.mobileapp.recipepal;
 
 import android.os.Bundle;
@@ -10,14 +42,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.navigation.Navigation;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mobileapp.recipepal.databinding.ActivityMainBinding;
 
 import java.util.List;
@@ -95,6 +125,9 @@ public class MainActivity extends AppCompatActivity {
         navController.navigate(R.id.recipeFragment, bundle);
     }
 
+    /**
+     *   Responsible for loading 2 Example recipes into the DB in the DB is empty
+     */
     private void InsertExampleRecipes() {
 
         executorService.execute(new Runnable() {
@@ -107,8 +140,6 @@ public class MainActivity extends AppCompatActivity {
                 if (!recipes.isEmpty()) {
                     return;
                 }
-
-
                 // Add default recpies to database
                 Recipe pancakeRecipe = new Recipe();
                 pancakeRecipe.recipeName = "Pancakes";

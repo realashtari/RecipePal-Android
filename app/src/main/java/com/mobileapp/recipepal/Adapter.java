@@ -14,7 +14,10 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-// Adapter Class for RecyclerView
+/**
+* Adapter Class for RecyclerView
+* Helper class to dynamically load and populate the cards with data from the Room database.
+*/
 public class Adapter extends RecyclerView.Adapter<ViewHolder> {
     // Define variables for the adapter
     List<Recipe> items;

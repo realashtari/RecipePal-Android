@@ -1,1 +1,26 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/gvg6aswq)
+# RecipePal (Android)
+
+RecipePal is a native Android app built in Android Studio that helps users create, save, and organize recipes. The app allows users to view ingredients, step-by-step instructions, and store custom recipes.
+
+## Features
+- Browse built-in recipe list
+- View recipe details (ingredients + steps)
+- Add your own recipes
+- Smooth navigation using fragments/activities
+- Stores user data locally
+  
+## Tech Stack
+- Java / Kotlin  
+- Android Studio  
+- XML UI layouts  
+- RecyclerView / Intents / Fragments   
+
+## APK
+Download the installable APK here:  
+📱 **[RecipePal.apk](./apk/RecipePal.apk)**
+
+## How to Run
+1. Clone the repository  
+2. Open the project in Android Studio  
+3. Build & Run on an Android device or emulator
+
